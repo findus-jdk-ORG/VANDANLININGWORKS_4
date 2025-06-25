@@ -34,22 +34,31 @@ body {
     padding-bottom: 60px;
 }
 
+/* Logo Section */
 .logo-section {
     text-align: center;
     margin-bottom: 30px;
     width: 100%;
-    background: url('background.png') no-repeat center center;
-    background-size: cover;
-    opacity: 0.9;
+    background: url(background.png);
     padding: 25px 15px;
     border-radius: 0 0 25% 25%;
     position: relative;
     overflow: hidden;
 }
 
+.logo-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+}
+
 .logo {
     width: 150px;
-    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,38 +66,36 @@ body {
     transform: translateY(50px);
     opacity: 0;
     animation: slideUp 1s forwards 0.3s;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid white;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 .logo-text {
-    padding-bottom: 5px; 
-    font-size: 25px;
+    padding-top: 25px;
+    padding-bottom: 5px;
+    font-size:33px;
     color: whitesmoke;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     transform: translateY(-50px);
     opacity: 0;
     animation: slideDown 1s forwards 0.3s;
 }
 
 .logo-slogan {
-    font-size: 12px;
+    padding-bottom: 40px;
+    font-size: 18px;
     color: whitesmoke;
     max-width: 280px;
     margin: 0 auto;
     opacity: 0;
     animation: fadeIn 1s forwards 1.3s;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* Social Media Section */
 .social-section {
     display: flex;
     flex-wrap: wrap;
@@ -115,12 +122,6 @@ body {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.social-card:active {
-    transform: translateY(2px) scale(0.98);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 .social-icon {
@@ -137,12 +138,17 @@ body {
     font-weight: 600;
 }
 
+/* Brand Colors */
 .instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+.linkedin { background-color: #0077B5; }
 .whatsapp { background-color: #25D366; }
 .map { background-color: #EB4335; }
 .call { background-color: #34a853; }
 .google { background-color: #a2b11fb2; }
+.email { background-color: #D44638; }
+.website { background: linear-gradient(45deg, #6e45e2, #88d3ce); }
 
+/* Footer */
 footer {
     width: 100%;
     max-width: 400px;
@@ -165,6 +171,7 @@ footer {
     color: whitesmoke;
 }
 
+/* Animations */
 @keyframes slideDown {
     from { transform: translateY(-50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
@@ -185,6 +192,13 @@ footer {
     to { opacity: 1; }
 }
 
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Responsive adjustments */
 @media (max-width: 420px) {
     .container {
         padding-bottom: 50px;
@@ -197,7 +211,6 @@ footer {
     
     .logo {
         width: 130px;
-        height: 130px;
     }
     
     .logo-text {
@@ -206,6 +219,23 @@ footer {
     
     .logo-slogan {
         font-size: 13px;
+    }
+    
+    /* .social-card {
+        width: 80px;
+        height: 80px;
+    } */
+    
+    .social-icon {
+        font-size: 22px;
+    }
+    
+    footer {
+        padding: 8px 0;
+    }
+    
+    .footer-content {
+        font-size: 10px;
     }
 }
 
@@ -232,7 +262,6 @@ footer {
     
     .logo {
         width: 120px;
-        height: 120px;
         margin-bottom: 10px;
     }
     
